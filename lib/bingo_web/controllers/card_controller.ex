@@ -48,7 +48,7 @@ defmodule BingoWeb.CardController do
 
   defp parse_create_params(%{"card_count" => count} = params) when is_binary(count) do
     with {int_count, ""} <- Integer.parse(count),
-         true <- int_count >= @min_card_count and int_count < @max_card_count do
+         true <- int_count >= @min_card_count and int_count <= @max_card_count do
       params
       |> Map.put("card_count", int_count)
       |> parse_create_params()
