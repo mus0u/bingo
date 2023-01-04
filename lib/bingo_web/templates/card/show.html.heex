@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>B</th>
+      <th>I</th>
+      <th>N</th>
+      <th>G</th>
+      <th>O</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for i <- 0..4 do %>
+	<tr>
+	  <td><%= Enum.at(@card.b, i) %></td>
+	  <td><%= Enum.at(@card.i, i) %></td>
+	  <td><%= Enum.at(@card.n, i) %></td>
+	  <td><%= Enum.at(@card.g, i) %></td>
+	  <td><%= Enum.at(@card.o, i) %></td>
+	</tr>
+    <% end %>
+  </tbody>
+</table>

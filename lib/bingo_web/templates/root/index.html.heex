@@ -1,0 +1,38 @@
+<form action="/cards" method="post">
+  <fieldset>
+    <%= csrf_input_tag("/cards") %>
+    <label for="card_count">Number of cards to generate:</label>
+    <input id="card_count" type="number" name="card_count" min="1" max="500" placeholder="10">
+  </fieldset>
+  <fieldset>
+    <legend>Cell values:</legend>
+    <input id="cell_type_traditional" type="radio" name="cell_type" value="traditional" checked="checked">
+    <label class="label-inline" for="cell_type_traditional">Traditional (1-75)</label>
+
+    <input id="cell_type_number_range" type="radio" name="cell_type" value="number_range">
+    <label class="label-inline" for="cell_type_number_range">Custom number range</label>
+
+    <input type="radio" id="cell_type_custom_text" class="radio_switch" name="cell_type" value="custom_text">
+    <label class="label-inline" for="cell_type_custom_text">Custom text entries</label>
+
+    <fieldset class="custom_number_range_options">
+      <small>Custom number ranges will be divided evenly into 5 sub-ranges for each BINGO letter, as with traditional cards.<br>
+	The minimum can't be less than 1, and the maximum can't be less than 23 more than the minimum.<br>
+	(There must be at least 24 unique values to fill a card.)</small>
+      <label for="number_range_min">Minimum:</label>
+      <input id="number_range_min" type="number" name="number_range_min" min="1" max="10000" placeholder="1">
+
+      <label for="number_range_max">Maximum:</label>
+      <input id="number_range_max" type="number" name="number_range_max" min="25" max="10000" placeholder="75">
+    </fieldset>
+
+    <fieldset class="custom_text_options">
+      <small>Each custom text entry is equally likely to appear in any column.<br>
+	You must include at least 24 options.</small>
+      <label for="custom_text_entries">Custom text entries (one per line):</label>
+      <textarea id="custom_text_entries" name="custom_text_entries" placeholder={"Option 1\nOption 2\nOption 3"}></textarea>
+    </fieldset>
+  </fieldset>
+
+  <input class="button-primary" type="submit" value="Generate!">
+</form>

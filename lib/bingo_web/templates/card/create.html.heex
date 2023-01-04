@@ -1,0 +1,6 @@
+<p>Your cards have been created. <strong>Cards are ephemeral, so please save your cards as HTML or or print them to use.</strong></p>
+<ul>
+<%= for i <- 0..(@count - 1) do %>
+    <li><a target="_blank" href={Enum.at(@card_urls, i)}>Card <%= i + 1 %></a></li>
+<% end %>
+</ul>
